@@ -1,3 +1,4 @@
+import allure
 from base.base_page import BasePage
 
 class DashboardPage(BasePage):
@@ -6,5 +7,6 @@ class DashboardPage(BasePage):
 
     _INVITE_BUTTON = "//button[@title='Пригласить']"
 
+    @allure.step("click invite button")
     def click_invite_button(self):
         self.driver.find_element(*self._INVITE_BUTTON).click()

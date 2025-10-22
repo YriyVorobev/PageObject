@@ -1,8 +1,9 @@
+import allure
 from selenium.webdriver.remote.webdriver import WebDriver
 from metaclasses.meta_locator import MetaLocator
 
 
-class BasePage( metaclass=MetaLocator):
+class BasePage(metaclass=MetaLocator):
 
     LOGO = "//a[contains(@class, 'navbar-brand')]"
 
@@ -12,4 +13,5 @@ class BasePage( metaclass=MetaLocator):
 
 
     def open(self):
-        self.driver.get(self._PAGE_URL)
+        with allure.step(f"Open {self._PAGE_URL} page"):
+            self.driver.get(self._PAGE_URL)
